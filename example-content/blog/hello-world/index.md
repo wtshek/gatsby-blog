@@ -37,8 +37,6 @@ const saltyDuckEgg = "chinese preserved food product"
 
 This is a paragraph.
 
-    This is a paragraph.
-
 # Header 1
 
 ## Header 2

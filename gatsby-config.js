@@ -9,15 +9,17 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Wing Tung Shek Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Wing Tung Shek`,
+      summary: `A reader, writer who loves thinking about random stuff and self-improved. Also a sport addict`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Wing Tung Shek's Blog`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `WTSHEK1628411`,
+      instagram: "w.t.shek",
+      linkedIn: "wing-tung-shek",
     },
   },
   plugins: [
@@ -119,6 +121,15 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://wingtungshek.us21.list-manage.com/subscribe/post?u=cdb4bba0af949e9ac7cde3c9d&amp;id=78a35c2333&amp;f_id=00d29ce6f0",
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
   ],

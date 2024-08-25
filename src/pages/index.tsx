@@ -1,11 +1,32 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, PageProps, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
+type BlogIndexProps = {
+  site: {
+    siteMetadata?: {
+      title?: string
+    }
+  }
+  allMarkdownRemark: {
+    nodes: Array<{
+      excerpt: string
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        date: string
+        title?: string
+        description?: string
+      }
+    }>
+  }
+}
+
+const BlogIndex: React.FC<PageProps<BlogIndexProps>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -25,6 +46,12 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
+      {/* subscribe to newsletter */}
+
+      {/* Latest article */}
+      <h5 className="border-b-2 border-solid border-black font-normal">
+        Latest Blog Posts
+      </h5>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
